@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact | Oak &amp; Loom</title>
+    <!-- TODO: add the Bootstrap stylesheet here. -->
+</head>
+<body>
+    <nav id="siteNav"  aria-label="Main navigation">
+        <div id="navInner">
+            <a id="brand" href="index.html">Oak &amp; Loom</a>
+            <!-- TODO: build the navbar toggle button here. -->
+            <div id="mainNavigation">
+                <ul id="navLinks">
+                    <li><a href="index.html">Home</a></li>
+<li><a href="products.html">Products</a></li>
+<li><a href="cart.html">Cart</a></li>
+<li><a href="contact.html" aria-current="page">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main id="pageContent">
+        <div id="contactRow">
+            <section id="contactColumn">
+                <div id="contactCard">
+                    <div id="contactBody">
+                        <h1>Ask about a piece</h1>
+                        <p>This classroom form checks input in the browser. It does not send or store an enquiry.</p>
+                        <form id="enquiryForm" action="contact.html" method="get">
+                            <div id="nameGroup">
+                                <label for="customerName">Name</label>
+                                <input id="customerName" name="name" type="text" required>
+                            </div>
+                            <div id="emailGroup">
+                                <label for="customerEmail">Email</label>
+                                <input id="customerEmail" name="email" type="email" required>
+                            </div>
+                            <div id="productGroup">
+                                <label for="productChoice">Product</label>
+                                <select id="productChoice" name="product" required>
+                                    <option value="">Choose a piece</option>
+                                    <option>Marlow lounge chair</option><option>Haven dining table</option><option>Rowan sideboard</option><option>Alder bookshelf</option>
+                                </select>
+                            </div>
+                            <!-- TODO: create the question field and updates checkbox here. -->
+                            <div id="submitGroup"><button type="submit">Check enquiry</button></div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer id="siteFooter">
+        <div id="footerInner">
+            <p>Oak &amp; Loom</p>
+            <p>Furniture for considered spaces</p>
+        </div>
+    </footer>
+    <!-- TODO: add the Bootstrap bundle before the closing body tag. -->
+</body>
+</html>

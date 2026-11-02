@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Products | Oak &amp; Loom</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-body-tertiary d-flex flex-column min-vh-100">
+    <nav id="siteNav" class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark" aria-label="Main navigation">
+        <div id="navInner" class="container">
+            <a id="brand" class="navbar-brand fw-semibold" href="index.html">Oak &amp; Loom</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+        data-bs-target="#mainNavigation" aria-controls="mainNavigation"
+        aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+</button>
+            <div id="mainNavigation" class="collapse navbar-collapse">
+                <ul id="navLinks" class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+<li class="nav-item"><a class="nav-link active" href="products.html" aria-current="page">Products</a></li>
+<li class="nav-item"><a class="nav-link" href="cart.html">Cart</a></li>
+<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main id="pageContent" class="container py-4 py-lg-5">
+        <header id="collectionHeader" class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+            <div><h1 class="mb-2">The collection</h1><p class="text-secondary mb-0">Pieces for living, dining and storage.</p></div>
+            <button class="btn btn-outline-success" type="button" data-bs-toggle="modal"
+        data-bs-target="#deliveryModal">Delivery information</button>
+        </header>
+        <div id="productGrid" class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
+            <div id="chairColumn" class="col">
+    <article id="chairCard" class="card h-100 shadow-sm">
+        <div id="chairMedia" class="ratio ratio-4x3 bg-success-subtle">
+            <div class="d-flex align-items-center justify-content-center text-success-emphasis">Oak and woven cord</div>
+        </div>
+        <div id="chairBody" class="card-body d-flex flex-column">
+            <span class="badge text-bg-success mb-2">New</span>
+            <h2 class="h5 card-title">Marlow lounge chair</h2>
+            <p class="card-text text-secondary flex-grow-1">A solid oak frame and woven seat for a quiet reading corner.</p>
+            <p class="fs-5 fw-semibold">$420</p>
+            <a class="btn btn-success mt-auto" href="contact.html">Ask about this piece</a>
+        </div>
+    </article>
+</div><div id="tableColumn" class="col">
+    <article id="tableCard" class="card h-100 shadow-sm">
+        <div id="tableMedia" class="ratio ratio-4x3 bg-success-subtle">
+            <div class="d-flex align-items-center justify-content-center text-success-emphasis">Solid oak</div>
+        </div>
+        <div id="tableBody" class="card-body d-flex flex-column">
+            <span class="badge text-bg-success mb-2">Popular</span>
+            <h2 class="h5 card-title">Haven dining table</h2>
+            <p class="card-text text-secondary flex-grow-1">A generous tabletop with softened edges and space for six.</p>
+            <p class="fs-5 fw-semibold">$890</p>
+            <a class="btn btn-success mt-auto" href="contact.html">Ask about this piece</a>
+        </div>
+    </article>
+</div><div id="cabinetColumn" class="col">
+    <article id="cabinetCard" class="card h-100 shadow-sm">
+        <div id="cabinetMedia" class="ratio ratio-4x3 bg-success-subtle">
+            <div class="d-flex align-items-center justify-content-center text-success-emphasis">Oak veneer</div>
+        </div>
+        <div id="cabinetBody" class="card-body d-flex flex-column">
+            <span class="badge text-bg-success mb-2">In stock</span>
+            <h2 class="h5 card-title">Rowan sideboard</h2>
+            <p class="card-text text-secondary flex-grow-1">Adjustable shelves and practical storage behind two doors.</p>
+            <p class="fs-5 fw-semibold">$760</p>
+            <a class="btn btn-success mt-auto" href="contact.html">Ask about this piece</a>
+        </div>
+    </article>
+</div><div id="shelfColumn" class="col">
+    <article id="shelfCard" class="card h-100 shadow-sm">
+        <div id="shelfMedia" class="ratio ratio-4x3 bg-success-subtle">
+            <div class="d-flex align-items-center justify-content-center text-success-emphasis">Oak and steel</div>
+        </div>
+        <div id="shelfBody" class="card-body d-flex flex-column">
+            <span class="badge text-bg-success mb-2">New</span>
+            <h2 class="h5 card-title">Alder bookshelf</h2>
+            <p class="card-text text-secondary flex-grow-1">Open shelves for books and objects in a compact living room.</p>
+            <p class="fs-5 fw-semibold">$310</p>
+            <a class="btn btn-success mt-auto" href="contact.html">Ask about this piece</a>
+        </div>
+    </article>
+</div>
+            
+        </div>
+        <div class="modal fade" id="deliveryModal" tabindex="-1"
+     aria-labelledby="deliveryTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title fs-5" id="deliveryTitle">Furniture delivery</h2>
+                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">Delivery is arranged by item size and destination. Contact us for a quote.</div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+    </main>
+    <footer id="siteFooter" class="border-top bg-white py-4 mt-auto">
+        <div id="footerInner" class="container d-flex flex-column flex-sm-row justify-content-between gap-2">
+            <p class="mb-0 fw-semibold">Oak &amp; Loom</p>
+            <p class="mb-0 text-secondary">Furniture for considered spaces</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

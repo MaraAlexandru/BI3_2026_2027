@@ -1,228 +1,54 @@
 <!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Detailed Bootstrap Student Implementation Guide | Lab 5</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body class="bg-light">
-    <main class="container py-4 py-lg-5">
-        <header class="p-4 p-lg-5 bg-white border rounded-3 shadow-sm mb-4">
-            <span class="badge text-bg-primary mb-3">Web Technologies · Lab 5 · 60 minutes</span>
-            <h1 class="h2 mb-3">Bootstrap Furniture Store</h1>
-            <p class="lead mb-0">A detailed working paper for exploring Bootstrap through a static furniture store interface.</p>
-        </header>
-
-        <section class="card shadow-sm mb-4" aria-labelledby="scope-title">
-            <div class="card-body p-4">
-                <h2 id="scope-title" class="h4">Project scope</h2>
-                <p>The project is a single-page furniture store built with semantic HTML and Bootstrap 5.3.3. Bootstrap provides the responsive grid, spacing, typography, forms, tables and interface components. Its official JavaScript bundle powers the navbar collapse, dropdown, accordion, modal and offcanvas panel.</p>
-                <p class="mb-0">No PHP, database, custom stylesheet or custom JavaScript is required. The form demonstrates browser-side constraints and does not save a submission.</p>
-            </div>
-        </section>
-
-        <section class="card shadow-sm mb-4" aria-labelledby="files-title">
-            <div class="card-body p-4">
-                <h2 id="files-title" class="h4 mb-3">Project files</h2>
-                <div class="table-responsive"><table class="table table-striped align-middle mb-0"><thead class="table-light"><tr><th scope="col">Path</th><th scope="col">Purpose</th><th scope="col">How to open</th></tr></thead><tbody>
-                    <tr><td><code>bootstrap_furniture_store/index.html</code></td><td>Complete static storefront and Bootstrap component examples</td><td>Open directly in a browser, or serve from XAMPP</td></tr>
-                    <tr><td><code>more_detailed_bootstrap_student_implementation_guide.html</code></td><td>This step-by-step working paper</td><td>Open in a browser or print from the browser</td></tr>
-                </tbody></table></div>
-                <div class="alert alert-info mt-3 mb-0" role="note">The demo loads Bootstrap 5.3.3 CSS and the matching JavaScript bundle from jsDelivr. An internet connection is needed for the CDN assets.</div>
-            </div>
-        </section>
-
-        <section class="card shadow-sm mb-4" aria-labelledby="run-title">
-            <div class="card-body p-4">
-                <h2 id="run-title" class="h4">Open and inspect the project</h2>
-                <p>Open <code>bootstrap_furniture_store/index.html</code> in a code editor and in a browser. The browser can open the file directly. If the project is served through XAMPP, copy the lab folder beneath the web root and use its local address. No database setup is involved.</p>
-                <p class="mb-0">Keep the browser developer tools open. Inspect an element to connect the visible page to its HTML classes, then resize the viewport to see responsive utilities change the layout.</p>
-            </div>
-        </section>
-
-        <section class="card shadow-sm mb-4" aria-labelledby="bootstrap-title">
-            <div class="card-body p-4">
-                <h2 id="bootstrap-title" class="h4">Bootstrap setup and class pattern</h2>
-                <p>At the top of <code>index.html</code>, the viewport declaration lets the page use the device width. The Bootstrap stylesheet follows it. Near the end of the document, the Bootstrap bundle enables components that respond to clicks.</p>
-<pre class="bg-dark text-light p-3 rounded"><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
-&lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"&gt;
-...
-&lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;</code></pre>
-                <p class="mb-0">Bootstrap classes are combined in the HTML. For example, <code>card</code> establishes a component, <code>shadow-sm</code> adds a utility effect, and <code>h-100</code> makes cards in a grid stretch to the same height. The component classes supply structure, while utilities tune spacing, color, display and alignment.</p>
-            </div>
-        </section>
-
-        <section class="card shadow-sm mb-4" aria-labelledby="plan-title">
-            <div class="card-body p-4">
-                <h2 id="plan-title" class="h4">Lab sequence</h2>
-                <div class="table-responsive"><table class="table table-bordered align-middle mb-0"><thead class="table-primary"><tr><th scope="col">Time</th><th scope="col">Work</th><th scope="col">Checkpoint</th></tr></thead><tbody>
-                    <tr><td>0 to 5 min</td><td>Open the page and identify the CDN stylesheet and script bundle</td><td>Bootstrap styling is visible</td></tr>
-                    <tr><td>5 to 15 min</td><td>Trace the navbar, container, grid and responsive breakpoints</td><td>The menu collapses and the layout reflows</td></tr>
-                    <tr><td>15 to 27 min</td><td>Adjust product cards, spacing, badges and button hierarchy</td><td>Cards align and actions remain clear</td></tr>
-                    <tr><td>27 to 40 min</td><td>Test the dropdown, collapse, accordion, modal and offcanvas</td><td>Each trigger targets the intended component</td></tr>
-                    <tr><td>40 to 50 min</td><td>Inspect form controls, validation constraints and the responsive table</td><td>Labels, table headings and narrow layout remain usable</td></tr>
-                    <tr><td>50 to 60 min</td><td>Make one coherent visual change and check the page at three widths</td><td>No overflow, broken targets or inconsistent spacing</td></tr>
-                </tbody></table></div>
-            </div>
-        </section>
-
-        <section class="card shadow-sm mb-4" aria-labelledby="navigation-title">
-            <div class="card-body p-4">
-                <h2 id="navigation-title" class="h4">Navigation, collapse and dropdown</h2>
-                <p>Find the first <code>&lt;nav&gt;</code> element. Its <code>.navbar</code> classes create the navigation component. <code>.navbar-expand-lg</code> keeps the links collapsed below the large breakpoint and expanded above it. The button's <code>data-bs-target</code> must match the <code>id</code> of the collapsible element.</p>
-<pre class="bg-dark text-light p-3 rounded"><code>&lt;button class="navbar-toggler" type="button"
-        data-bs-toggle="collapse" data-bs-target="#mainNavigation"
-        aria-controls="mainNavigation" aria-expanded="false"
-        aria-label="Toggle navigation"&gt;
-    &lt;span class="navbar-toggler-icon"&gt;&lt;/span&gt;
-&lt;/button&gt;
-&lt;div class="collapse navbar-collapse" id="mainNavigation"&gt;
-    ... navigation links ...
-&lt;/div&gt;</code></pre>
-                <p>The dropdown uses the same relationship. A button has <code>data-bs-toggle="dropdown"</code>, and the adjacent menu uses <code>.dropdown-menu</code>. The bundle listens for the click and changes the component state. No handwritten event handler is needed.</p>
-                <p class="mb-0"><strong>Try:</strong> change <code>.navbar-expand-lg</code> to <code>.navbar-expand-md</code>. Test at a width below and above the breakpoint, then restore the preferred behavior.</p>
-            </div>
-        </section>
-
-        <section class="card shadow-sm mb-4" aria-labelledby="grid-title">
-            <div class="card-body p-4">
-                <h2 id="grid-title" class="h4">Containers, grid and gutters</h2>
-                <p>The page content is wrapped in <code>.container</code>. A Bootstrap row groups columns, and each column defines how much space its content occupies. The product collection uses row column-count utilities, which apply the same column width to every direct child at a given breakpoint.</p>
-<pre class="bg-dark text-light p-3 rounded"><code>&lt;div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4"&gt;
-    &lt;div class="col"&gt;... product card ...&lt;/div&gt;
-    &lt;div class="col"&gt;... product card ...&lt;/div&gt;
-    &lt;div class="col"&gt;... product card ...&lt;/div&gt;
-&lt;/div&gt;</code></pre>
-                <div class="table-responsive"><table class="table table-sm table-bordered align-middle"><thead class="table-light"><tr><th scope="col">Class</th><th scope="col">Effect in the project</th></tr></thead><tbody>
-                    <tr><td><code>.container</code></td><td>Centers content and applies responsive side padding</td></tr>
-                    <tr><td><code>.row</code></td><td>Creates the grid row that contains columns</td></tr>
-                    <tr><td><code>.row-cols-1</code></td><td>Shows one collection card per row by default</td></tr>
-                    <tr><td><code>.row-cols-sm-2</code></td><td>Shows two cards per row from the small breakpoint</td></tr>
-                    <tr><td><code>.row-cols-lg-3</code></td><td>Shows three cards per row from the large breakpoint</td></tr>
-                    <tr><td><code>.g-4</code></td><td>Adds horizontal and vertical gutters between cards</td></tr>
-                </tbody></table></div>
-                <p class="mb-0"><strong>Try:</strong> replace <code>.row-cols-lg-3</code> with <code>.row-cols-xl-4</code>. Add a fourth card and compare the collection on medium, large and extra-large widths.</p>
-            </div>
-        </section>
-
-        <section class="card shadow-sm mb-4" aria-labelledby="utilities-title">
-            <div class="card-body p-4">
-                <h2 id="utilities-title" class="h4">Spacing, flex utilities and typography</h2>
-                <p>Bootstrap utilities handle common presentation adjustments directly in the class attribute. Their naming patterns are consistent. For example, <code>mb-3</code> adds bottom margin, <code>p-4</code> adds padding on every side, and <code>text-secondary</code> applies a theme color.</p>
-                <div class="table-responsive"><table class="table table-sm table-bordered align-middle"><thead class="table-light"><tr><th scope="col">Utility</th><th scope="col">Use shown in the demo</th></tr></thead><tbody>
-                    <tr><td><code>py-4 py-lg-5</code></td><td>Vertical padding grows at a larger breakpoint</td></tr>
-                    <tr><td><code>d-flex flex-wrap gap-2</code></td><td>Arranges action buttons and lets them wrap with consistent gaps</td></tr>
-                    <tr><td><code>align-items-center justify-content-between</code></td><td>Aligns content on the cross axis and distributes it across a row</td></tr>
-                    <tr><td><code>flex-grow-1</code> and <code>mt-auto</code></td><td>Uses available card height to keep product actions aligned</td></tr>
-                    <tr><td><code>display-5</code>, <code>lead</code>, <code>text-secondary</code></td><td>Sets a display heading, introductory paragraph and quieter supporting text</td></tr>
-                </tbody></table></div>
-                <p class="mb-0"><strong>Try:</strong> vary the card descriptions. The product cards use <code>.d-flex .flex-column</code> on the body and <code>.flex-grow-1</code> on description text so prices and buttons sit consistently.</p>
-            </div>
-        </section>
-
-        <section class="card shadow-sm mb-4" aria-labelledby="cards-title">
-            <div class="card-body p-4">
-                <h2 id="cards-title" class="h4">Cards, badges, buttons and ratio placeholders</h2>
-                <p>Each product is an <code>&lt;article&gt;</code> with Bootstrap's <code>.card</code> structure. The image area is a responsive <code>.ratio</code> container. Text inside the placeholder identifies the product without relying on external image files. A badge communicates a short status, and button variants distinguish the main action from a secondary one.</p>
-<pre class="bg-dark text-light p-3 rounded"><code>&lt;article class="card h-100 shadow-sm"&gt;
-    &lt;div class="ratio ratio-4x3 bg-warning-subtle"&gt;
-        &lt;div class="d-flex align-items-center justify-content-center"&gt;
-            Lounge chair
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Lab 5 | Detailed Student Working Guide</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"></head><body class="bg-body-tertiary"><main class="container py-4 py-lg-5"><header class="bg-white border rounded-3 p-4 p-lg-5 mb-4"><span class="badge text-bg-success mb-3">Web Technologies | Lab 5 | 60 minutes</span><h1 class="h2">Student Working Guide</h1><p class="lead mb-0">Build a four-page Bootstrap furniture store from the supplied plain HTML starter.</p></header><section class="card shadow-sm mb-4"><div class="card-body p-4"><h2 class="h4 mb-3">Before starting</h2><p>Copy the entire <code>starter</code> folder and rename your copy <code>my-store</code>. Work in that copy. Keep all four pages together so their relative links continue to work. Open <code>my-store/index.html</code> in a browser and the same folder in your editor.</p><p>The starter pages contain furniture content and semantic HTML. They contain no Bootstrap classes, stylesheet or script. Comments beginning with <code>TODO</code> mark elements that you must create. Keep existing IDs because this guide uses them to identify exact editing locations.</p><p>The <code>final</code> folder is the reference solution. Use it after attempting a step or when comparing completed pages. Do not copy the solution over your working folder.</p><div class="table-responsive"><table class="table table-bordered table-sm align-middle"><thead class="table-light"><tr><th scope="col">Page in my-store</th><th scope="col">Work to complete</th></tr></thead><tbody><tr><td><code>index.html</code></td><td><code>Home page, hero and a new accordion</code></td></tr><tr><td><code>products.html</code></td><td><code>Product cards, a new fourth card and a new modal</code></td></tr><tr><td><code>cart.html</code></td><td><code>Responsive table and a new dismissible alert</code></td></tr><tr><td><code>contact.html</code></td><td><code>Form layout and two new controls</code></td></tr></tbody></table></div><p>The lab lasts 60 minutes. Use HTML, Bootstrap classes and the official Bootstrap bundle. Internet access is required for the CDN files. The cart has fixed sample values. The form uses browser validation and has no backend.</p></div></section><section class="card shadow-sm mb-4"><div class="card-body p-4"><h2 class="h4 mb-3">Step 1. Load Bootstrap on every page, 0 to 5 minutes</h2><p>Open each of the four HTML files. In <code>&lt;head&gt;</code>, find the stylesheet TODO comment after <code>&lt;title&gt;</code>. Replace that comment with this link. Keep the existing UTF-8 and viewport declarations.</p><pre class="bg-dark text-light p-3 rounded overflow-auto"><code>&lt;link href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot;&gt;</code></pre><p>In the same file, find the bundle TODO comment just before <code>&lt;/body&gt;</code>. Replace it with this script. Repeat both changes in all four files.</p><pre class="bg-dark text-light p-3 rounded overflow-auto"><code>&lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js&quot;&gt;&lt;/script&gt;</code></pre><p>The stylesheet supplies Bootstrap presentation. The bundle supplies behavior for the navbar, alert, accordion and modal. Loading the bundle is enough for the data-attribute examples used here. You do not need to write a JavaScript handler.</p><div class="alert alert-success mb-0"><strong>Checkpoint.</strong> Reload every page. The default font changes. Each page contains one Bootstrap CSS link and one matching bundle.</div></div></section><section class="card shadow-sm mb-4"><div class="card-body p-4"><h2 class="h4 mb-3">Step 2. Build the common layout and navigation, 5 to 14 minutes</h2><p>Start with <code>index.html</code>. Locate the following elements and add the listed class attributes. IDs identify elements. Classes apply Bootstrap rules. Keep both attributes on the same element. A row such as <code>#pageContent</code> means the element whose <code>id</code> is <code>pageContent</code>.</p><pre class="bg-dark text-light p-3 rounded overflow-auto"><code>&lt;main id=&quot;pageContent&quot; class=&quot;container py-4 py-lg-5&quot;&gt;</code></pre><div class="table-responsive"><table class="table table-bordered table-sm align-middle"><thead class="table-light"><tr><th scope="col">Find this element</th><th scope="col">Set its class attribute to</th></tr></thead><tbody><tr><td><code>body</code></td><td><code>bg-body-tertiary d-flex flex-column min-vh-100</code></td></tr><tr><td><code>#siteNav</code></td><td><code>navbar navbar-expand-lg bg-dark</code></td></tr><tr><td><code>#navInner</code></td><td><code>container</code></td></tr><tr><td><code>#brand</code></td><td><code>navbar-brand fw-semibold</code></td></tr><tr><td><code>#mainNavigation</code></td><td><code>collapse navbar-collapse</code></td></tr><tr><td><code>#navLinks</code></td><td><code>navbar-nav ms-auto mb-2 mb-lg-0</code></td></tr><tr><td><code>#pageContent</code></td><td><code>container py-4 py-lg-5</code></td></tr><tr><td><code>#siteFooter</code></td><td><code>border-top bg-white py-4 mt-auto</code></td></tr><tr><td><code>#footerInner</code></td><td><code>container d-flex flex-column flex-sm-row justify-content-between gap-2</code></td></tr></tbody></table></div><p>Also add <code>data-bs-theme="dark"</code> to <code>#siteNav</code>. It makes the links and toggler suitable for the dark background. Add <code>class="nav-item"</code> to every navigation <code>&lt;li&gt;</code>, and <code>class="nav-link"</code> to its link. On the current page link use <code>class="nav-link active"</code> and retain <code>aria-current="page"</code>. Add <code>mb-0 fw-semibold</code> to the first footer paragraph and <code>mb-0 text-secondary</code> to the second.</p><p>Build a new button after the brand link and before <code>#mainNavigation</code>. Replace the toggle TODO comment with this markup.</p><pre class="bg-dark text-light p-3 rounded overflow-auto"><code>&lt;button class=&quot;navbar-toggler&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot;
+        data-bs-target=&quot;#mainNavigation&quot; aria-controls=&quot;mainNavigation&quot;
+        aria-expanded=&quot;false&quot; aria-label=&quot;Toggle navigation&quot;&gt;
+    &lt;span class=&quot;navbar-toggler-icon&quot;&gt;&lt;/span&gt;
+&lt;/button&gt;</code></pre><p>The selector <code>#mainNavigation</code> in the button must match the collapse region ID. The button starts with <code>aria-expanded="false"</code> because the narrow-screen menu starts closed. Bootstrap updates that state when the menu changes.</p><p>Apply the same layout classes, theme attribute and toggle button in <code>products.html</code>, <code>cart.html</code> and <code>contact.html</code>. Mark Products active on Products, Cart active on Cart and Contact active on Contact. Do not mark Home active on every page.</p><p><code>navbar-expand-lg</code> expands the menu from 992 pixels. Below that width, the button opens it. <code>container</code> centers content. <code>ms-auto</code> pushes the list to the far end. The body flex column and footer <code>mt-auto</code> keep the footer at the bottom when content is short.</p><div class="alert alert-success mb-0"><strong>Checkpoint.</strong> Navigate between all four files. On a narrow screen the toggle opens and closes the menu. On a wide screen the links stay visible. Exactly one link is active per page.</div></div></section><section class="card shadow-sm mb-4"><div class="card-body p-4"><h2 class="h4 mb-3">Step 3. Style the Home page, 14 to 20 minutes</h2><p>Open <code>index.html</code>. Find the hero elements and add these classes. Keep the content and link destinations.</p><div class="table-responsive"><table class="table table-bordered table-sm align-middle"><thead class="table-light"><tr><th scope="col">Find this element</th><th scope="col">Set its class attribute to</th></tr></thead><tbody><tr><td><code>#hero</code></td><td><code>bg-white border rounded-3 p-4 p-lg-5 mb-4</code></td></tr><tr><td><code>#heroRow</code></td><td><code>row align-items-center g-4</code></td></tr><tr><td><code>#heroText</code></td><td><code>col-lg-8</code></td></tr><tr><td><code>#heroAside</code></td><td><code>col-lg-4</code></td></tr><tr><td><code>#heroEyebrow</code></td><td><code>text-uppercase small fw-semibold text-success</code></td></tr><tr><td><code>#heroTitle</code></td><td><code>display-5 fw-semibold</code></td></tr><tr><td><code>#heroLead</code></td><td><code>lead text-secondary</code></td></tr><tr><td><code>#heroAction</code></td><td><code>btn btn-success btn-lg</code></td></tr><tr><td><code>#heroPanel</code></td><td><code>bg-success-subtle rounded-3 p-4</code></td></tr><tr><td><code>h2 inside #heroPanel</code></td><td><code>h4</code></td></tr><tr><td><code>p inside #heroPanel</code></td><td><code>mb-0</code></td></tr><tr><td><code>#faqSection</code></td><td><code>mt-4</code></td></tr><tr><td><code>h2 directly inside #faqSection</code></td><td><code>h3 mb-3</code></td></tr></tbody></table></div><p>The row contains two grid columns. At the large breakpoint, they occupy eight and four of twelve grid units. Below it, they stack. <code>g-4</code> supplies the gap. <code>p-4 p-lg-5</code> increases padding on larger screens. The display class changes the heading size without changing its semantic <code>h1</code> level.</p><p>Temporarily change the two columns to <code>col-lg-6</code>. Compare the composition, then restore <code>col-lg-8</code> and <code>col-lg-4</code>.</p><div class="alert alert-success mb-0"><strong>Checkpoint.</strong> The hero becomes two columns on a wide screen and a readable stack on a phone. The collection link opens Products. Leave the accordion TODO for Step 8.</div></div></section><section class="card shadow-sm mb-4"><div class="card-body p-4"><h2 class="h4 mb-3">Step 4. Turn the catalogue into product cards, 20 to 28 minutes</h2><p>Open <code>products.html</code>. Add <code>d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4</code> to <code>#collectionHeader</code>. Add <code>mb-2</code> to its heading and <code>text-secondary mb-0</code> to its paragraph.</p><p>Set the product grid class to this value. Its direct children will become columns.</p><pre class="bg-dark text-light p-3 rounded overflow-auto"><code>&lt;div id=&quot;productGrid&quot; class=&quot;row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4&quot;&gt;</code></pre><p>Apply this pattern to every existing product. The prefix changes from <code>chair</code> to <code>table</code> and <code>cabinet</code>. For example, all three elements <code>#chairBody</code>, <code>#tableBody</code> and <code>#cabinetBody</code> receive <code>card-body d-flex flex-column</code>.</p><div class="table-responsive"><table class="table table-bordered table-sm align-middle"><thead class="table-light"><tr><th scope="col">Find this element</th><th scope="col">Set its class attribute to</th></tr></thead><tbody><tr><td><code>#chairColumn, #tableColumn, #cabinetColumn</code></td><td><code>col</code></td></tr><tr><td><code>Each product article</code></td><td><code>card h-100 shadow-sm</code></td></tr><tr><td><code>Each product media wrapper</code></td><td><code>ratio ratio-4x3 bg-success-subtle</code></td></tr><tr><td><code>div directly inside each media wrapper</code></td><td><code>d-flex align-items-center justify-content-center text-success-emphasis</code></td></tr><tr><td><code>Each product body</code></td><td><code>card-body d-flex flex-column</code></td></tr><tr><td><code>Each product h2</code></td><td><code>h5 card-title</code></td></tr><tr><td><code>Description paragraph</code></td><td><code>card-text text-secondary flex-grow-1</code></td></tr><tr><td><code>Price paragraph</code></td><td><code>fs-5 fw-semibold</code></td></tr><tr><td><code>Product link</code></td><td><code>btn btn-success mt-auto</code></td></tr></tbody></table></div><p>Create a badge inside each card body at the badge TODO. Use New for the chair, Popular for the table and In stock for the sideboard.</p><pre class="bg-dark text-light p-3 rounded overflow-auto"><code>&lt;span class=&quot;badge text-bg-success mb-2&quot;&gt;New&lt;/span&gt;</code></pre><p>The ratio wrapper keeps a 4:3 proportion without a custom stylesheet. The body is a vertical flex container. The description grows into unused space, and <code>mt-auto</code> aligns the action toward the bottom. Keep the product link pointing to <code>contact.html</code>.</p><div class="alert alert-success mb-0"><strong>Checkpoint.</strong> Three products now look like cards. They stack below 576 pixels, use two columns from 576 pixels, and reserve four columns from 992 pixels.</div></div></section><section class="card shadow-sm mb-4"><div class="card-body p-4"><h2 class="h4 mb-3">Step 5. Create the fourth card from scratch, 28 to 32 minutes</h2><p>Find the fourth-column TODO inside <code>#productGrid</code>. Create a new <code>div</code> column and an <code>article</code> inside it. Build the media wrapper, card body, badge, heading, description, price and link yourself. Use the class pattern from Step 4. This task has no complete card snippet to paste.</p><div class="table-responsive"><table class="table table-bordered table-sm align-middle"><thead class="table-light"><tr><th scope="col">New element content</th><th scope="col">Value</th></tr></thead><tbody><tr><td><code>Column / article / media / body IDs</code></td><td><code>shelfColumn / shelfCard / shelfMedia / shelfBody</code></td></tr><tr><td><code>Product name</code></td><td><code>Alder bookshelf</code></td></tr><tr><td><code>Material placeholder</code></td><td><code>Oak and steel</code></td></tr><tr><td><code>Description</code></td><td><code>Open shelves for books and objects in a compact living room.</code></td></tr><tr><td><code>Price / status</code></td><td><code>$310 / New</code></td></tr><tr><td><code>Link text / destination</code></td><td><code>Ask about this piece / contact.html</code></td></tr></tbody></table></div><p>Keep the new column inside the grid as a sibling of the first three columns. Use unique IDs. Do not place the new card inside the previous product body.</p><div class="alert alert-success mb-0"><strong>Checkpoint.</strong> Four cards appear in one row at large widths. Narrow the screen and confirm that the fourth moves with the rest. Change a description length and inspect action alignment.</div></div></section><section class="card shadow-sm mb-4"><div class="card-body p-4"><h2 class="h4 mb-3">Step 6. Format the cart and create an alert, 32 to 39 minutes</h2><p>Open <code>cart.html</code>. Add <code>mb-4</code> to the page heading, then apply these classes.</p><div class="table-responsive"><table class="table table-bordered table-sm align-middle"><thead class="table-light"><tr><th scope="col">Find this element</th><th scope="col">Set its class attribute to</th></tr></thead><tbody><tr><td><code>#cartPanel</code></td><td><code>card shadow-sm</code></td></tr><tr><td><code>#cartBody</code></td><td><code>card-body</code></td></tr><tr><td><code>#cartTableWrapper</code></td><td><code>table-responsive</code></td></tr><tr><td><code>#cartTable</code></td><td><code>table table-striped align-middle</code></td></tr><tr><td><code>Table caption</code></td><td><code>caption-top</code></td></tr><tr><td><code>Table thead</code></td><td><code>table-light</code></td></tr><tr><td><code>#cartActions</code></td><td><code>d-flex flex-wrap justify-content-between gap-2 mt-3</code></td></tr><tr><td><code>Continue browsing link</code></td><td><code>btn btn-outline-success</code></td></tr><tr><td><code>Enquire about this order link</code></td><td><code>btn btn-success</code></td></tr></tbody></table></div><p>Build a new alert after the page heading, replacing the alert TODO. Put its close button inside the alert.</p><pre class="bg-dark text-light p-3 rounded overflow-auto"><code>&lt;div class=&quot;alert alert-info alert-dismissible fade show&quot; role=&quot;alert&quot;&gt;
+    This is a sample cart. Quantities and totals are static.
+    &lt;button class=&quot;btn-close&quot; type=&quot;button&quot; data-bs-dismiss=&quot;alert&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+&lt;/div&gt;</code></pre><p><code>table-responsive</code> belongs on the wrapper, not the table. Retain <code>scope="col"</code> and <code>scope="row"</code>. The cart is a fixed sample, so its quantities and totals do not change when you navigate.</p><div class="alert alert-success mb-0"><strong>Checkpoint.</strong> The table is striped. At a narrow width, any required horizontal scrolling stays inside the table wrapper. Close the alert, then reload to restore it.</div></div></section><section class="card shadow-sm mb-4"><div class="card-body p-4"><h2 class="h4 mb-3">Step 7. Style the enquiry form and build new controls, 39 to 48 minutes</h2><p>Open <code>contact.html</code>. Apply these classes to the existing structure.</p><div class="table-responsive"><table class="table table-bordered table-sm align-middle"><thead class="table-light"><tr><th scope="col">Find this element</th><th scope="col">Set its class attribute to</th></tr></thead><tbody><tr><td><code>#contactRow</code></td><td><code>row justify-content-center</code></td></tr><tr><td><code>#contactColumn</code></td><td><code>col-lg-8</code></td></tr><tr><td><code>#contactCard</code></td><td><code>card shadow-sm</code></td></tr><tr><td><code>#contactBody</code></td><td><code>card-body p-4</code></td></tr><tr><td><code>Contact h1</code></td><td><code>h2</code></td></tr><tr><td><code>Introductory paragraph</code></td><td><code>text-secondary</code></td></tr><tr><td><code>#enquiryForm</code></td><td><code>row g-3</code></td></tr><tr><td><code>#nameGroup and #emailGroup</code></td><td><code>col-md-6</code></td></tr><tr><td><code>#productGroup and #submitGroup</code></td><td><code>col-12</code></td></tr><tr><td><code>Existing labels</code></td><td><code>form-label</code></td></tr><tr><td><code>Name and email inputs</code></td><td><code>form-control</code></td></tr><tr><td><code>Product select</code></td><td><code>form-select</code></td></tr><tr><td><code>Submit button</code></td><td><code>btn btn-success</code></td></tr></tbody></table></div><p>Find the controls TODO after the product selection and before <code>#submitGroup</code>. Create a required question textarea inside a full-width column. Create a checkbox inside a separate full-width column. Type the following markup into that location.</p><pre class="bg-dark text-light p-3 rounded overflow-auto"><code>&lt;div class=&quot;col-12&quot;&gt;
+    &lt;label class=&quot;form-label&quot; for=&quot;message&quot;&gt;Your question&lt;/label&gt;
+    &lt;textarea class=&quot;form-control&quot; id=&quot;message&quot; name=&quot;message&quot; rows=&quot;4&quot; required&gt;&lt;/textarea&gt;
+&lt;/div&gt;
+&lt;div class=&quot;col-12&quot;&gt;
+    &lt;div class=&quot;form-check&quot;&gt;
+        &lt;input class=&quot;form-check-input&quot; type=&quot;checkbox&quot; id=&quot;updates&quot; name=&quot;updates&quot; value=&quot;yes&quot;&gt;
+        &lt;label class=&quot;form-check-label&quot; for=&quot;updates&quot;&gt;Send me collection updates&lt;/label&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre><p>Compare each label <code>for</code> with its control <code>id</code>. Keep the existing form action, method and control names. Name and email sit side by side from the medium breakpoint. Other fields span the form width.</p><p>Submit with empty required fields. Then enter a malformed email address. Complete the required fields and submit again. The browser returns to the static Contact page with a query string. No enquiry is sent or saved. Bootstrap styles the controls. The HTML <code>required</code> and <code>type="email"</code> attributes supply native constraints.</p><div class="alert alert-success mb-0"><strong>Checkpoint.</strong> Name and email stack on a phone. Clicking a label focuses or toggles its control. The browser blocks an empty required question.</div></div></section><section class="card shadow-sm mb-4"><div class="card-body p-4"><h2 class="h4 mb-3">Step 8. Build an accordion on Home, 48 to 54 minutes</h2><p>Return to <code>index.html</code>. Find the accordion TODO inside <code>#faqSection</code>. Create the wrapper and two items below. Keep this markup outside the hero.</p><pre class="bg-dark text-light p-3 rounded overflow-auto"><code>&lt;div class=&quot;accordion&quot; id=&quot;storeFaq&quot;&gt;
+    &lt;div class=&quot;accordion-item&quot;&gt;
+        &lt;h3 class=&quot;accordion-header&quot;&gt;
+            &lt;button class=&quot;accordion-button&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot;
+                    data-bs-target=&quot;#careAnswer&quot; aria-expanded=&quot;true&quot;
+                    aria-controls=&quot;careAnswer&quot;&gt;How do I care for oak?&lt;/button&gt;
+        &lt;/h3&gt;
+        &lt;div id=&quot;careAnswer&quot; class=&quot;accordion-collapse collapse show&quot; data-bs-parent=&quot;#storeFaq&quot;&gt;
+            &lt;div class=&quot;accordion-body&quot;&gt;Use a soft cloth and wipe spills promptly.&lt;/div&gt;
         &lt;/div&gt;
     &lt;/div&gt;
-    &lt;div class="card-body d-flex flex-column"&gt;
-        &lt;h3 class="h5 card-title"&gt;Marlow lounge chair&lt;/h3&gt;
-        &lt;p class="card-text text-secondary flex-grow-1"&gt;...&lt;/p&gt;
-        &lt;button class="btn btn-primary mt-auto" type="button"&gt;View details&lt;/button&gt;
+    &lt;div class=&quot;accordion-item&quot;&gt;
+        &lt;h3 class=&quot;accordion-header&quot;&gt;
+            &lt;button class=&quot;accordion-button collapsed&quot; type=&quot;button&quot; data-bs-toggle=&quot;collapse&quot;
+                    data-bs-target=&quot;#assemblyAnswer&quot; aria-expanded=&quot;false&quot;
+                    aria-controls=&quot;assemblyAnswer&quot;&gt;Is assembly required?&lt;/button&gt;
+        &lt;/h3&gt;
+        &lt;div id=&quot;assemblyAnswer&quot; class=&quot;accordion-collapse collapse&quot; data-bs-parent=&quot;#storeFaq&quot;&gt;
+            &lt;div class=&quot;accordion-body&quot;&gt;Tables need light assembly. Chairs arrive ready to use.&lt;/div&gt;
+        &lt;/div&gt;
     &lt;/div&gt;
-&lt;/article&gt;</code></pre>
-                <p class="mb-0"><strong>Try:</strong> change a badge variant, use <code>.btn-outline-primary</code> for a secondary action, and add a fourth item. Keep the visual hierarchy consistent across all cards.</p>
-            </div>
-        </section>
-
-        <section class="card shadow-sm mb-4" aria-labelledby="form-title">
-            <div class="card-body p-4">
-                <h2 id="form-title" class="h4">Forms and browser validation</h2>
-                <p>Find the enquiry form. Every control has a visible label linked by matching <code>for</code> and <code>id</code> values. <code>.form-control</code> styles text inputs and the textarea. <code>.form-select</code> styles the select control. Grid columns place fields side by side on wider screens and stack them on narrow screens.</p>
-<pre class="bg-dark text-light p-3 rounded"><code>&lt;div class="col-md-6"&gt;
-    &lt;label for="customerEmail" class="form-label"&gt;Email address&lt;/label&gt;
-    &lt;input class="form-control" type="email" id="customerEmail"
-           name="email" required&gt;
-&lt;/div&gt;</code></pre>
-                <p>The <code>required</code>, <code>type="email"</code>, <code>min</code> and <code>max</code> attributes use native browser validation. Checkbox styling uses <code>.form-check</code>, <code>.form-check-input</code> and <code>.form-check-label</code>. The static project has no server, so the form does not save data.</p>
-                <p class="mb-0"><strong>Try:</strong> submit the form empty, then enter an invalid email. Add another field with a label and one of the Bootstrap control classes. Keep the label association valid.</p>
-            </div>
-        </section>
-
-        <section class="card shadow-sm mb-4" aria-labelledby="feedback-title">
-            <div class="card-body p-4">
-                <h2 id="feedback-title" class="h4">Alerts, modal, offcanvas, accordion and collapse</h2>
-                <p>The page includes several components whose appearance and behavior are provided by Bootstrap. Their triggers connect to a target through matching selectors and element IDs.</p>
-                <div class="table-responsive"><table class="table table-bordered align-middle"><thead class="table-light"><tr><th scope="col">Component</th><th scope="col">Trigger pattern</th><th scope="col">Target in the project</th></tr></thead><tbody>
-                    <tr><td>Dismissible alert</td><td><code>data-bs-dismiss="alert"</code></td><td>Closes the success message</td></tr>
-                    <tr><td>Collapse</td><td><code>data-bs-toggle="collapse"</code></td><td><code>#deliveryDetails</code></td></tr>
-                    <tr><td>Accordion</td><td><code>data-bs-toggle="collapse"</code></td><td>Care and assembly panels</td></tr>
-                    <tr><td>Modal</td><td><code>data-bs-toggle="modal"</code></td><td><code>#materialsModal</code> and <code>#productModal</code></td></tr>
-                    <tr><td>Offcanvas</td><td><code>data-bs-toggle="offcanvas"</code></td><td><code>#cartPanel</code></td></tr>
-                    <tr><td>Dropdown</td><td><code>data-bs-toggle="dropdown"</code></td><td>Navigation's More menu</td></tr>
-                </tbody></table></div>
-                <p>Use buttons for actions. Match each target selector exactly, including the leading <code>#</code> in the trigger and the target <code>id</code>. Accessible labels such as <code>aria-controls</code>, <code>aria-labelledby</code> and <code>aria-expanded</code> describe component relationships and state.</p>
-                <p class="mb-0"><strong>Try:</strong> open and close each component using its trigger, its close button and, where applicable, the Escape key. Make sure opening one component does not leave an invisible overlay on the page.</p>
-            </div>
-        </section>
-
-        <section class="card shadow-sm mb-4" aria-labelledby="table-title">
-            <div class="card-body p-4">
-                <h2 id="table-title" class="h4">Responsive tables, pagination and progress</h2>
-                <p>The collection table is wrapped in <code>.table-responsive</code>, so a narrow viewport can scroll the table horizontally. The table uses a semantic header, row headings, striping and hover treatment. Text alignment utilities place prices consistently.</p>
-                <p>The pagination component groups page links and marks the current page. The progress component uses a labeled progressbar role and value attributes. These examples show Bootstrap styling and HTML semantics. Their values and links are static.</p>
-                <p class="mb-0"><strong>Try:</strong> add a product row with a heading cell, availability badge and price. Reduce the viewport width and verify the table remains reachable without forcing the entire page to overflow.</p>
-            </div>
-        </section>
-
-        <section class="card shadow-sm mb-4" aria-labelledby="task-title">
-            <div class="card-body p-4">
-                <h2 id="task-title" class="h4">Implementation task</h2>
-                <p>Personalize the furniture store while keeping it a single static HTML page. Make the collection show at least four products, apply a consistent color and button hierarchy, and adjust one responsive breakpoint. Add one extra form field with an associated label. Test every interactive component after editing.</p>
-                <p class="mb-0">Use Bootstrap classes for layout and component styling. Keep the HTML semantic, retain accessible names for controls, and do not add custom CSS or JavaScript.</p>
-            </div>
-        </section>
-
-        <section class="card shadow-sm mb-4" aria-labelledby="check-title">
-            <div class="card-body p-4">
-                <h2 id="check-title" class="h4">Completion checklist</h2>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">The page uses the Bootstrap 5.3.3 CSS and matching JavaScript bundle.</li>
-                    <li class="list-group-item">The navigation expands and collapses at its configured breakpoint.</li>
-                    <li class="list-group-item">The grid and product cards reflow without horizontal page overflow.</li>
-                    <li class="list-group-item">The product cards have consistent spacing and aligned actions.</li>
-                    <li class="list-group-item">The dropdown, dismissible alert, collapse, accordion, modal and offcanvas respond to their controls.</li>
-                    <li class="list-group-item">Form labels are associated with controls, and native constraints work.</li>
-                    <li class="list-group-item">The table remains usable on a narrow viewport.</li>
-                    <li class="list-group-item">No PHP, database, custom stylesheet or custom JavaScript was added.</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="card shadow-sm" aria-labelledby="docs-title">
-            <div class="card-body p-4">
-                <h2 id="docs-title" class="h4">Bootstrap documentation</h2>
-                <p class="mb-2">Use the documentation for the version linked by the project:</p>
-                <ul class="mb-0">
-                    <li><a href="https://getbootstrap.com/docs/5.3/getting-started/introduction/">Introduction and CDN setup</a></li>
-                    <li><a href="https://getbootstrap.com/docs/5.3/layout/grid/">Grid system</a></li>
-                    <li><a href="https://getbootstrap.com/docs/5.3/components/navbar/">Navbar</a></li>
-                    <li><a href="https://getbootstrap.com/docs/5.3/components/card/">Cards</a></li>
-                    <li><a href="https://getbootstrap.com/docs/5.3/forms/overview/">Forms</a></li>
-                    <li><a href="https://getbootstrap.com/docs/5.3/components/accordion/">Accordion</a></li>
-                    <li><a href="https://getbootstrap.com/docs/5.3/components/modal/">Modal</a></li>
-                    <li><a href="https://getbootstrap.com/docs/5.3/components/offcanvas/">Offcanvas</a></li>
-                    <li><a href="https://getbootstrap.com/docs/5.3/content/tables/">Tables</a></li>
-                </ul>
-            </div>
-        </section>
-    </main>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+&lt;/div&gt;</code></pre><p>In the first item, the button target and panel ID both refer to <code>careAnswer</code>. The second uses <code>assemblyAnswer</code>. The first starts open because its panel has <code>show</code> and its button starts expanded. The second starts closed, so its button has <code>collapsed</code>. Both panels refer to <code>#storeFaq</code> through <code>data-bs-parent</code>, which keeps only one item open at a time.</p><div class="alert alert-success mb-0"><strong>Checkpoint.</strong> Open assembly. Care closes. Open care again and confirm the reverse. If nothing happens, check the bundle and matching targets.</div></div></section><section class="card shadow-sm mb-4"><div class="card-body p-4"><h2 class="h4 mb-3">Step 9. Build a delivery modal on Products, 54 to 58 minutes</h2><p>Open <code>products.html</code>. Replace the delivery-trigger TODO in <code>#collectionHeader</code> with this new button.</p><pre class="bg-dark text-light p-3 rounded overflow-auto"><code>&lt;button class=&quot;btn btn-outline-success&quot; type=&quot;button&quot; data-bs-toggle=&quot;modal&quot;
+        data-bs-target=&quot;#deliveryModal&quot;&gt;Delivery information&lt;/button&gt;</code></pre><p>Replace the modal TODO after the product grid with the following markup. Keep it outside <code>#productGrid</code>, otherwise the grid treats it as a product column.</p><pre class="bg-dark text-light p-3 rounded overflow-auto"><code>&lt;div class=&quot;modal fade&quot; id=&quot;deliveryModal&quot; tabindex=&quot;-1&quot;
+     aria-labelledby=&quot;deliveryTitle&quot; aria-hidden=&quot;true&quot;&gt;
+    &lt;div class=&quot;modal-dialog modal-dialog-centered&quot;&gt;
+        &lt;div class=&quot;modal-content&quot;&gt;
+            &lt;div class=&quot;modal-header&quot;&gt;
+                &lt;h2 class=&quot;modal-title fs-5&quot; id=&quot;deliveryTitle&quot;&gt;Furniture delivery&lt;/h2&gt;
+                &lt;button class=&quot;btn-close&quot; type=&quot;button&quot; data-bs-dismiss=&quot;modal&quot; aria-label=&quot;Close&quot;&gt;&lt;/button&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;modal-body&quot;&gt;Delivery is arranged by item size and destination. Contact us for a quote.&lt;/div&gt;
+            &lt;div class=&quot;modal-footer&quot;&gt;
+                &lt;button class=&quot;btn btn-secondary&quot; type=&quot;button&quot; data-bs-dismiss=&quot;modal&quot;&gt;Close&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre><p>The trigger points to <code>#deliveryModal</code>. The dialog title is associated through <code>aria-labelledby="deliveryTitle"</code>. Both close buttons use <code>data-bs-dismiss="modal"</code>. Bootstrap supplies the overlay and focus behavior.</p><div class="alert alert-success mb-0"><strong>Checkpoint.</strong> Open the modal and close it with its button. Open it again and press Escape. The rest of the page becomes usable after closing.</div></div></section><section class="card shadow-sm mb-4"><div class="card-body p-4"><h2 class="h4 mb-3">Step 10. Review the four-page result, 58 to 60 minutes</h2><p>Open Home, Products, Cart and Contact in order. Check each at approximately 390, 768 and 1200 pixels. Compare your work with the corresponding file in <code>final</code>. Read differences before copying code.</p><div class="table-responsive"><table class="table table-bordered table-sm align-middle"><thead class="table-light"><tr><th scope="col">Check</th><th scope="col">Expected result</th></tr></thead><tbody><tr><td><code>Navigation</code></td><td><code>The current page is active and the narrow-screen menu works on every page.</code></td></tr><tr><td><code>Home</code></td><td><code>The hero reflows and the two accordion items work.</code></td></tr><tr><td><code>Products</code></td><td><code>All four cards stay in the grid. The modal opens and closes.</code></td></tr><tr><td><code>Cart</code></td><td><code>The alert dismisses and table content remains reachable.</code></td></tr><tr><td><code>Contact</code></td><td><code>Labels match controls. Required fields use native browser validation.</code></td></tr><tr><td><code>Files</code></td><td><code>All four pages stay together. No custom CSS, custom JavaScript or PHP was added.</code></td></tr></tbody></table></div><p>Submit your entire <code>my-store</code> folder. Required work includes styling existing HTML and building the toggle, badges, fourth card, alert, question field, checkbox, accordion and modal.</p></div></section><section class="card shadow-sm mb-4"><div class="card-body p-4"><h2 class="h4 mb-3">When a component does not work</h2><div class="table-responsive"><table class="table table-bordered table-sm align-middle"><thead class="table-light"><tr><th scope="col">Symptom</th><th scope="col">Action</th></tr></thead><tbody><tr><td><code>A page has no styling</code></td><td><code>Check that the CSS link is inside head, the URL is unchanged and the CDN is reachable.</code></td></tr><tr><td><code>The menu button does nothing</code></td><td><code>Check the bundle, data-bs-toggle and matching target ID on that page.</code></td></tr><tr><td><code>Only one page looks correct</code></td><td><code>Repeat the shared layout edits in every HTML file. The pages are independent static files.</code></td></tr><tr><td><code>A card appears inside another</code></td><td><code>Check closing div and article tags. Column wrappers must be direct children of productGrid.</code></td></tr><tr><td><code>The modal behaves like a product column</code></td><td><code>Move its markup after the closing productGrid div.</code></td></tr><tr><td><code>The accordion opens the wrong panel</code></td><td><code>Use unique IDs and match each button target to the intended panel.</code></td></tr><tr><td><code>No Bootstrap validation message appears</code></td><td><code>This exercise uses native browser validation. Retain required and the input types.</code></td></tr><tr><td><code>The alert is missing after closing</code></td><td><code>Reload the page to restore the static alert.</code></td></tr></tbody></table></div></div></section><section class="card shadow-sm mb-4"><div class="card-body p-4"><h2 class="h4 mb-3">Class patterns to recognize</h2><div class="table-responsive"><table class="table table-bordered table-sm align-middle"><thead class="table-light"><tr><th scope="col">Pattern</th><th scope="col">Meaning</th></tr></thead><tbody><tr><td><code>p-4 / py-4 / mb-3</code></td><td><code>Padding on all sides / vertical padding / bottom margin.</code></td></tr><tr><td><code>g-4 / gap-3</code></td><td><code>Grid gutters / space between flex items.</code></td></tr><tr><td><code>col-lg-8</code></td><td><code>Eight of twelve grid units from the large breakpoint.</code></td></tr><tr><td><code>row-cols-sm-2</code></td><td><code>Two equal-width children per row from the small breakpoint.</code></td></tr><tr><td><code>d-flex / flex-column</code></td><td><code>Flex layout / vertical flex direction.</code></td></tr><tr><td><code>h-100 / mt-auto</code></td><td><code>Full available height / automatic top margin.</code></td></tr><tr><td><code>btn + btn-success</code></td><td><code>Component base class plus its color variant.</code></td></tr><tr><td><code>data-bs-toggle / data-bs-target</code></td><td><code>Component behavior / selector for its target.</code></td></tr></tbody></table></div></div></section><section class="card shadow-sm mb-4"><div class="card-body p-4"><h2 class="h4 mb-3">Bootstrap documentation</h2><ul><li><a href="https://getbootstrap.com/docs/5.3/layout/grid/">Grid and responsive columns</a></li><li><a href="https://getbootstrap.com/docs/5.3/components/navbar/">Navbar</a></li><li><a href="https://getbootstrap.com/docs/5.3/components/card/">Cards</a></li><li><a href="https://getbootstrap.com/docs/5.3/forms/overview/">Forms</a></li><li><a href="https://getbootstrap.com/docs/5.3/content/tables/">Tables</a></li><li><a href="https://getbootstrap.com/docs/5.3/components/alerts/">Alerts</a></li><li><a href="https://getbootstrap.com/docs/5.3/components/accordion/">Accordion</a></li><li><a href="https://getbootstrap.com/docs/5.3/components/modal/">Modal</a></li><li><a href="https://getbootstrap.com/docs/5.3/utilities/spacing/">Spacing utilities</a></li></ul></div></section></main></body></html>
