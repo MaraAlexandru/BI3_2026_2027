@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Oak &amp; Loom | Bootstrap Furniture Store</title>
+    <meta name="description" content="A static furniture store interface for learning the main Bootstrap 5.3 components and layout utilities.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-body-tertiary">
+    <a class="visually-hidden-focusable" href="#main-content">Skip to content</a>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" aria-label="Main navigation">
+        <div class="container">
+            <a class="navbar-brand fw-semibold" href="#top">Oak &amp; Loom</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavigation" aria-controls="mainNavigation" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNavigation">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#top">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#collection">Collection</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#components">Components</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#forms">Forms</a></li>
+                    <li class="nav-item dropdown">
+                        <button class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">More</button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#layout">Layout and utilities</a></li>
+                            <li><a class="dropdown-item" href="#data-display">Tables and pagination</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#faq">Questions</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <button class="btn btn-outline-light position-relative" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartPanel" aria-controls="cartPanel">
+                    Cart <span class="badge text-bg-warning ms-1">2</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content" class="container py-4 py-lg-5">
+        <section id="top" class="p-4 p-lg-5 mb-4 bg-white border rounded-4 shadow-sm">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-8">
+                    <p class="text-uppercase small fw-semibold text-secondary mb-2">Furniture for considered spaces</p>
+                    <h1 class="display-5 fw-semibold">Comfort, built to last.</h1>
+                    <p class="lead text-secondary mb-4">Explore a compact storefront built with semantic HTML and Bootstrap classes. The page adapts to screen size and its interactive controls use Bootstrap's bundled components.</p>
+                    <div class="d-flex flex-wrap gap-2">
+                        <a class="btn btn-primary btn-lg" href="#collection">Browse the collection</a>
+                        <button class="btn btn-outline-secondary btn-lg" type="button" data-bs-toggle="modal" data-bs-target="#materialsModal">Our materials</button>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="ratio ratio-4x3 rounded-3 bg-success-subtle border">
+                        <div class="d-flex align-items-center justify-content-center text-center p-3">
+                            <div><span class="badge text-bg-success mb-2">Oak series</span><p class="h3 mb-1">Made for living</p><p class="text-secondary mb-0">A visual placeholder using Bootstrap utilities</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="alert alert-success alert-dismissible fade show shadow-sm" role="alert">
+            <strong>Spring collection is here.</strong> Selected pieces are ready to explore.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+        <section id="layout" class="py-4" aria-labelledby="layout-title">
+            <div class="d-flex flex-wrap align-items-end justify-content-between gap-2 mb-3">
+                <div><p class="text-uppercase small fw-semibold text-secondary mb-1">Responsive layout</p><h2 id="layout-title" class="h3 mb-0">A grid that changes with the viewport</h2></div>
+                <span class="badge text-bg-secondary">Container · row · columns · gutters</span>
+            </div>
+            <p class="text-secondary">Resize the browser. The three panels become two columns at medium widths and one column on narrow screens.</p>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-3">
+                <div class="col"><article class="card h-100 border-0 shadow-sm"><div class="card-body"><span class="badge text-bg-primary mb-2">01 / Structure</span><h3 class="h5">Container</h3><p class="card-text text-secondary mb-0">The centered container sets a readable content width and keeps consistent side padding.</p></div></article></div>
+                <div class="col"><article class="card h-100 border-0 shadow-sm"><div class="card-body"><span class="badge text-bg-primary mb-2">02 / Grid</span><h3 class="h5">Rows and columns</h3><p class="card-text text-secondary mb-0">A row groups columns. Responsive column classes change how many items fit at each breakpoint.</p></div></article></div>
+                <div class="col"><article class="card h-100 border-0 shadow-sm"><div class="card-body"><span class="badge text-bg-primary mb-2">03 / Spacing</span><h3 class="h5">Gutters</h3><p class="card-text text-secondary mb-0">The <code>g-3</code> utility adds horizontal and vertical space between grid items.</p></div></article></div>
+            </div>
+        </section>
+
+        <section id="collection" class="py-4" aria-labelledby="collection-title">
+            <div class="d-flex flex-wrap align-items-end justify-content-between gap-2 mb-3">
+                <div><p class="text-uppercase small fw-semibold text-secondary mb-1">Furniture collection</p><h2 id="collection-title" class="h3 mb-0">Pieces for every room</h2></div>
+                <a class="link-primary fw-semibold" href="#data-display">View all products <span aria-hidden="true">&rarr;</span></a>
+            </div>
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
+                <div class="col"><article class="card h-100 shadow-sm"><div class="ratio ratio-4x3 bg-warning-subtle"><div class="d-flex align-items-center justify-content-center text-secondary">Lounge chair</div></div><div class="card-body d-flex flex-column"><div class="d-flex justify-content-between gap-2"><h3 class="h5 card-title">Marlow lounge chair</h3><span class="badge text-bg-success align-self-start">New</span></div><p class="card-text text-secondary flex-grow-1">Solid oak frame, woven seat and a relaxed silhouette for quiet corners.</p><p class="fw-semibold fs-5">$420</p><button class="btn btn-primary mt-auto" type="button" data-bs-toggle="modal" data-bs-target="#productModal">View details</button></div></article></div>
+                <div class="col"><article class="card h-100 shadow-sm"><div class="ratio ratio-4x3 bg-info-subtle"><div class="d-flex align-items-center justify-content-center text-secondary">Dining table</div></div><div class="card-body d-flex flex-column"><div class="d-flex justify-content-between gap-2"><h3 class="h5 card-title">Haven dining table</h3><span class="badge text-bg-secondary align-self-start">Bestseller</span></div><p class="card-text text-secondary flex-grow-1">A generous oak tabletop with softened edges and space for six.</p><p class="fw-semibold fs-5">$890</p><button class="btn btn-primary mt-auto" type="button" data-bs-toggle="modal" data-bs-target="#productModal">View details</button></div></article></div>
+                <div class="col"><article class="card h-100 shadow-sm"><div class="ratio ratio-4x3 bg-danger-subtle"><div class="d-flex align-items-center justify-content-center text-secondary">Storage cabinet</div></div><div class="card-body d-flex flex-column"><div class="d-flex justify-content-between gap-2"><h3 class="h5 card-title">Rowan sideboard</h3><span class="badge text-bg-warning">Limited</span></div><p class="card-text text-secondary flex-grow-1">Thoughtful storage with adjustable shelves and hand-finished details.</p><p class="fw-semibold fs-5">$760</p><button class="btn btn-primary mt-auto" type="button" data-bs-toggle="modal" data-bs-target="#productModal">View details</button></div></article></div>
+            </div>
+        </section>
+
+        <section id="components" class="py-4" aria-labelledby="components-title">
+            <p class="text-uppercase small fw-semibold text-secondary mb-1">Interface components</p><h2 id="components-title" class="h3 mb-3">Buttons, dropdowns and collapsible content</h2>
+            <div class="row g-4">
+                <div class="col-lg-6"><div class="card h-100 shadow-sm"><div class="card-body"><h3 class="h5">Button variants and states</h3><p class="text-secondary">Use a filled button for the main action and an outline or link style for secondary actions.</p><div class="d-flex flex-wrap gap-2"><button class="btn btn-primary" type="button">Add to cart</button><button class="btn btn-outline-primary" type="button">Save for later</button><button class="btn btn-secondary" type="button">Compare</button><button class="btn btn-primary" type="button" disabled>Unavailable</button></div><hr><p class="small text-secondary mb-0"><code>.btn</code> supplies the component base. A variant such as <code>.btn-primary</code> sets its visual role.</p></div></div></div>
+                <div class="col-lg-6"><div class="card h-100 shadow-sm"><div class="card-body"><h3 class="h5">Collapse</h3><p class="text-secondary">Reveal supplemental content without leaving the page.</p><button class="btn btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#deliveryDetails" aria-expanded="false" aria-controls="deliveryDetails">Delivery information</button><div class="collapse mt-3" id="deliveryDetails"><div class="card card-body bg-body-tertiary">Furniture delivery is arranged by room and item size. The delivery team confirms a time window before arrival.</div></div></div></div></div>
+                <div class="col-12"><div class="card shadow-sm"><div class="card-body"><h3 class="h5">Accordion</h3><p class="text-secondary">Accordion items use the Collapse plugin and matching button and panel identifiers.</p><div class="accordion" id="storeAccordion"><div class="accordion-item"><h4 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#carePanel" aria-expanded="true" aria-controls="carePanel">How should solid oak be cared for?</button></h4><div id="carePanel" class="accordion-collapse collapse show" data-bs-parent="#storeAccordion"><div class="accordion-body">Dust with a soft cloth. Wipe spills promptly and use a coaster for hot or damp objects. A small amount of furniture oil can refresh the finish over time.</div></div></div><div class="accordion-item"><h4 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#assemblyPanel" aria-expanded="false" aria-controls="assemblyPanel">Is assembly required?</button></h4><div id="assemblyPanel" class="accordion-collapse collapse" data-bs-parent="#storeAccordion"><div class="accordion-body">Most tables and storage pieces need light assembly. Chairs arrive ready to use.</div></div></div></div></div></div></div>
+            </div>
+        </section>
+
+        <section id="forms" class="py-4" aria-labelledby="forms-title">
+            <p class="text-uppercase small fw-semibold text-secondary mb-1">Form controls</p><h2 id="forms-title" class="h3 mb-3">A compact product enquiry</h2>
+            <div class="card shadow-sm"><div class="card-body p-4"><form action="#forms" method="get"><div class="row g-3"><div class="col-md-6"><label for="customerName" class="form-label">Name</label><input class="form-control" type="text" id="customerName" name="name" placeholder="Alex Morgan" required><div class="form-text">Enter the name for the reply.</div></div><div class="col-md-6"><label for="customerEmail" class="form-label">Email address</label><input class="form-control" type="email" id="customerEmail" name="email" placeholder="alex@example.com" required></div><div class="col-md-6"><label for="productChoice" class="form-label">Product</label><select class="form-select" id="productChoice" name="product"><option selected disabled value="">Choose a piece</option><option>Marlow lounge chair</option><option>Haven dining table</option><option>Rowan sideboard</option></select></div><div class="col-md-6"><label for="quantity" class="form-label">Quantity</label><input class="form-control" type="number" id="quantity" name="quantity" min="1" max="10" value="1"></div><div class="col-12"><label for="message" class="form-label">Question</label><textarea class="form-control" id="message" name="message" rows="3" placeholder="Tell us what you would like to know."></textarea></div><div class="col-12"><div class="form-check"><input class="form-check-input" type="checkbox" value="yes" id="updates"><label class="form-check-label" for="updates">Send occasional collection updates</label></div></div><div class="col-12 d-flex flex-wrap align-items-center gap-3"><button class="btn btn-primary" type="submit">Send enquiry</button><span class="small text-secondary">This static example uses browser validation and does not store submissions.</span></div></div></form></div></div>
+        </section>
+
+        <section id="data-display" class="py-4" aria-labelledby="data-title">
+            <p class="text-uppercase small fw-semibold text-secondary mb-1">Data and navigation</p><h2 id="data-title" class="h3 mb-3">Responsive table and pagination</h2>
+            <div class="card shadow-sm mb-4"><div class="card-body"><h3 class="h5">Current collection</h3><div class="table-responsive"><table class="table table-striped table-hover align-middle mb-0"><thead class="table-light"><tr><th scope="col">Product</th><th scope="col">Material</th><th scope="col">Availability</th><th scope="col" class="text-end">Price</th></tr></thead><tbody><tr><th scope="row">Marlow lounge chair</th><td>Oak and woven cord</td><td><span class="badge text-bg-success">In stock</span></td><td class="text-end">$420</td></tr><tr><th scope="row">Haven dining table</th><td>Solid oak</td><td><span class="badge text-bg-warning">Low stock</span></td><td class="text-end">$890</td></tr><tr><th scope="row">Rowan sideboard</th><td>Oak veneer</td><td><span class="badge text-bg-secondary">Made to order</span></td><td class="text-end">$760</td></tr></tbody></table></div></div></div>
+            <nav aria-label="Collection pages"><ul class="pagination"><li class="page-item disabled"><span class="page-link">Previous</span></li><li class="page-item active" aria-current="page"><span class="page-link">1</span></li><li class="page-item"><a class="page-link" href="#collection">2</a></li><li class="page-item"><a class="page-link" href="#collection">3</a></li><li class="page-item"><a class="page-link" href="#collection">Next</a></li></ul></nav>
+            <div class="card shadow-sm"><div class="card-body"><div class="d-flex justify-content-between mb-2"><span class="fw-semibold">Made to order progress</span><span class="text-secondary">75%</span></div><div class="progress" role="progressbar" aria-label="Order progress" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"><div class="progress-bar bg-success w-75">In production</div></div></div></div>
+        </section>
+
+        <section id="faq" class="py-4" aria-labelledby="faq-title">
+            <div class="card border-primary-subtle shadow-sm"><div class="card-body p-4"><div class="row align-items-center g-3"><div class="col-lg"><h2 id="faq-title" class="h4">Need help choosing a piece?</h2><p class="text-secondary mb-0">Open the product panel to see a modal example, or use the cart button in the navigation to inspect an offcanvas panel.</p></div><div class="col-lg-auto"><button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#materialsModal">Explore materials</button></div></div></div></div>
+        </section>
+    </main>
+
+    <footer class="border-top bg-white py-4"><div class="container d-flex flex-column flex-sm-row justify-content-between gap-2"><span class="fw-semibold">Oak &amp; Loom</span><span class="text-secondary small">A static Bootstrap 5.3.3 teaching project</span></div></footer>
+
+    <div class="modal fade" id="materialsModal" tabindex="-1" aria-labelledby="materialsModalTitle" aria-hidden="true"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h2 class="modal-title fs-5" id="materialsModalTitle">Materials with a lighter footprint</h2><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body"><p>We select durable hardwoods and repairable finishes for pieces designed to stay in use. Each item includes care notes for its material.</p><div class="alert alert-info mb-0" role="note">Modal dialogs are opened with a button and the Bootstrap Modal plugin.</div></div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Continue browsing</button></div></div></div></div>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="cartPanel" aria-labelledby="cartPanelTitle"><div class="offcanvas-header"><h2 class="offcanvas-title h5" id="cartPanelTitle">Your cart <span class="badge text-bg-secondary">2 items</span></h2><button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button></div><div class="offcanvas-body"><div class="d-flex justify-content-between border-bottom pb-3 mb-3"><div><p class="fw-semibold mb-1">Marlow lounge chair</p><p class="small text-secondary mb-0">Quantity: 1</p></div><span>$420</span></div><div class="d-flex justify-content-between border-bottom pb-3 mb-3"><div><p class="fw-semibold mb-1">Oak care kit</p><p class="small text-secondary mb-0">Quantity: 1</p></div><span>$28</span></div><div class="d-flex justify-content-between fw-semibold mb-3"><span>Subtotal</span><span>$448</span></div><a class="btn btn-primary w-100" href="#data-display" data-bs-dismiss="offcanvas">Review order</a></div></div>
+
+    <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalTitle" aria-hidden="true"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h2 class="modal-title fs-5" id="productModalTitle">Marlow lounge chair</h2><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div><div class="modal-body"><p class="text-secondary">Solid oak frame, woven seat and a relaxed silhouette for quiet corners.</p><p class="fs-5 fw-semibold mb-0">$420</p></div><div class="modal-footer"><button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Keep browsing</button><button type="button" class="btn btn-primary" data-bs-dismiss="modal">Add to cart</button></div></div></div></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
